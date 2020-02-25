@@ -1,0 +1,24 @@
+.marquee-wrap {
+	overflow:auto;
+	height:250px;
+    border:5px solid rgb(112, 108, 108);
+    background-color:rgb(240, 229, 229);
+	padding:10px;
+  font-size:18px;
+  line-height:1.6;
+}
+/* increase duration to speed up scroll */
+.marquee{animation:scrollUp 50s linear 1s infinite;}
+@supports (transform:translate3d(0px,0px,0px)){
+	.marquee-wrap {overflow:hidden; }
+	.marquee{padding-top:160px;}
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.marquee-wrap {overflow:hidden; }/* ie11 hack */
+	.marquee{padding-top:160px;}
+}
+@keyframes scrollUp {
+	from {transform:translateY(0%);}
+	to {transform:translateY(-100%);}
+}
+.marquee:hover{animation-play-state:paused}
